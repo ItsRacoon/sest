@@ -1,0 +1,36 @@
+
+
+### Cyclomatic Complexity Analysis
+
+| Metric               | Value |
+|----------------------|-------|
+| Number of Nodes (N)  | 14    |
+| Number of Edges (E)  | 16    |
+| Path Calculation     | (E - N) + 2 = (16 - 14) + 2 = 4 |
+| Total Independent Paths | 4 |
+
+**Independent Paths:**
+1. P1: 1 → 2 → 3 → 4 → 12 → 13 → 14
+2. P2: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 14
+3. P3: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 9 → 10 → 4 → 12 → 13 → 14
+4. P4: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 9 → 11 → 4 → 12 → 13 → 14
+
+---
+
+### Test Plan
+
+| Test ID | Description      | Inputs           | Expected Output | Actual Output | Test Result |
+|---------|------------------|------------------|-----------------|---------------|-------------|
+|         |                  | Size | Array Elements | Key |               |             |
+| TC1     | Testing Path P1  | 0    | -              | 5   | -1            | -1          | Pass        |
+| TC2     | Testing Path P2  | 5    | [12,44,64,87,99] | 87 | -1            | -1          | Pass        |
+| TC3     | Testing Path P3  | 4    | [1,15,35,65]   | 25  | 3             | 3           | Pass        |
+| TC4     | Testing Path P4  | 4    | [1,3,5,8]      | 2   | -1            | -1          | Pass        |
+
+**Testing Report:**
+- Total test cases executed: 4
+- Test cases passed: 4
+- Test cases failed: 0
+
+---
+

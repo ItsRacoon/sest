@@ -1,0 +1,72 @@
+
+
+### **Boundary Value Analysis Testing (Test Plan)**
+
+| Test ID | Description                     | Inputs (l s b) | Expected Output                 | Actual Output     | Test Result |
+|---------|---------------------------------|----------------|----------------------------------|-------------------|-------------|
+| BVA_1   | Valid inputs                    | 10 10 10       | 100                              | 100               | Pass        |
+| BVA_2   | Valid locks                     | 1 8 8          | 48.50                            | 48.50             | Pass        |
+| BVA_3   | Valid stocks                    | 5 1 5          | 38.0                             | 38.0              | Pass        |
+| BVA_4   | Valid barrels                   | 40 45 1        | 495.0                            | 495.0             | Pass        |
+| BVA_5   | Invalid locks lower bound       | 0 5 8          | Locks is out of range            | Invalid Input     | Fail        |
+| BVA_6   | Invalid locks upper bound       | 71 40 45       | Locks are out of range           | Invalid Input     | Fail        |
+| BVA_7   | Invalid stocks lower bound      | 10 0 45        | Stocks are out of range          | Invalid Input     | Fail        |
+| BVA_8   | Invalid stocks upper bound      | 10 81 11       | Stocks are out of range          | Invalid Input     | Fail        |
+| BVA_9   | Invalid barrels lower bound     | 40 45 0        | Barrels are out of range         | Invalid Input     | Fail        |
+| BVA_10  | Invalid barrels upper bound     | 40 44 91       | Barrels are out of range         | Invalid Input     | Fail        |
+| BVA_11  | Character Input                 | 5 4 a          | Non-integer input given          | Invalid Input     | Fail        |
+| BVA_12  | Decimal input                   | 40 25 4.5      | Non-integer input given          | Invalid Input     | Fail        |
+| BVA_13  | Negative Input                  | -3 4 5         | Negative Input                   | Invalid Input     | Fail        |
+
+**Testing Report:**  
+- **Total number of Test Cases executed:** **13**  
+- **Total number of Test Cases Passed:** **4**  
+- **Total number of Test Cases Failed:** **9**  
+
+---
+
+### **Equivalence Class Partitioning**
+
+**Equivalence Classes:**  
+- **L1** – {locks: 1 ≤ locks ≤ 70}  
+- **S1** – {stocks: 1 ≤ stocks ≤ 80}  
+- **B1** – {barrels: 1 ≤ barrels ≤ 90}  
+
+#### **Weak Normal & Strong Normal Testing**  
+
+| Test ID | Description       | Inputs (l s b) | Expected Output | Actual Output | Test Result |
+|---------|-------------------|----------------|------------------|----------------|-------------|
+| WN1, SN1 | Valid inputs      | 35 30 40       | 555.0            | 555.0          | Pass        |
+
+#### **Weak Robust Testing**  
+
+| Test ID | Description                     | Inputs (l s b) | Expected Output                 | Actual Output | Test Result |
+|---------|---------------------------------|----------------|----------------------------------|---------------|-------------|
+| WR1     | Invalid locks lower bound       | 0 5 8          | Locks is out of range            | Invalid Input | Fail        |
+| WR2     | Invalid locks upper bound       | 71 40 45       | Locks are out of range           | Invalid Input | Fail        |
+| WR3     | Invalid stocks lower bound      | 10 0 45        | Stocks are out of range          | Invalid Input | Fail        |
+| WR4     | Invalid stocks upper bound      | 10 81 11       | Stocks are out of range          | Invalid Input | Fail        |
+| WR5     | Invalid barrels lower bound     | 40 45 0        | Barrels are out of range         | Invalid Input | Fail        |
+| WR6     | Invalid barrels upper bound     | 40 44 91       | Barrels are out of range         | Invalid Input | Fail        |
+
+#### **Strong Robust Testing**  
+
+| Test ID | Description                     | Inputs (l s b) | Expected Output                     | Actual Output | Test Result |
+|---------|---------------------------------|----------------|--------------------------------------|---------------|-------------|
+| SR1     | Invalid locks & stocks          | 71 81 45       | Input locks & stocks are out of range | Invalid Input | Fail        |
+| SR2     | Invalid stocks & barrels        | 45 81 0        | Input stocks & barrels are out of range | Invalid Input | Fail        |
+| SR3     | Invalid locks & barrels         | 71 30 91       | Input locks & barrels are out of range | Invalid Input | Fail        |
+| SR4     | Invalid Inputs                  | 71 0 91        | Input values are out of range        | Invalid Input | Fail        |
+
+**Testing Report:**  
+- **Total number of Test Cases executed:** **12**  
+- **Total number of Test Cases Passed:** **2**  
+- **Total number of Test Cases Failed:** **10**  
+
+---
+
+### **Summary of Test Results**
+| Testing Method              		 | Total Test Cases | Passed | Failed |
+|------------------------------		 |------------------|--------|--------|
+| Boundary Value Analysis (BVA)		 | 13               | 4      | 9      |
+| Equivalence Class Partitioning (ECP)   | 12               | 2      | 10     |

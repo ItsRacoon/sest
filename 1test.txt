@@ -1,0 +1,58 @@
+Boundary Value Analysis 
++--------+----------------------------------------+-----+----+----+--------------------+--------------------+-------------+
+| TestID | Description                            |  a  | b  | c  | Expected Output     | Actual Output       | Test Result |
++--------+----------------------------------------+-----+----+----+--------------------+--------------------+-------------+
+| BVA_1  | Valid inputs, does not form a triangle |  1  | 2  | 3  | Invalid Triangle    | Invalid Triangle    | Pass        |
+| BVA_2  | Valid isosceles triangle               | 10  | 8  | 8  | Isosceles Triangle  | Isosceles Triangle  | Pass        |
+| BVA_3  | Valid equilateral triangle             |  5  | 5  | 5  | Equilateral Triangle| Equilateral Triangle| Pass        |
+| BVA_4  | All sides are zero (invalid input)     |  0  | 0  | 0  | Invalid Triangle    | Out of range        | Fail        |
+| BVA_5  | Input value is out of range (a)        |  0  | 1  | 2  | a is out of range   | Out of range        | Fail        |
+| BVA_6  | Input value is out of range (b)        | 10  |11  | 3  | b is out of range   | Out of range        | Fail        |
+| BVA_7  | Input value is out of range (c)        |  1  | 2  |11  | c is out of range   | Out of range        | Fail        |
+| BVA_8  | Negative Input                         | -1  | 2  | 8  | Negative Input      | Out of Range        | Fail        |
+| BVA_9  | Less number of Inputs                  |  5  | 4  | -  | Value Error         | Invalid Triangle    | Fail        |
+| BVA_10 | Character input                        | 'a' | 5  | 4  | Invalid Input       | Invalid T           | Fail        |
+| BVA_11 | String Input                           |abc  | 5  | 4  | Invalid Input       | Invalid T           | Fail        |
+| BVA_12 | Decimal input                          |1.2  | 5  | 4  | Invalid Input       | Invalid T           | Fail        |
+| BVA_13 | Extra inputs beyond 3 values           | 3   | 4  | 5  | Many number of inputs| Scalene T          | Fail        |
++--------+----------------------------------------+-----+----+----+--------------------+--------------------+-------------+
+
+Testing Report: 
+ Total number of Test Cases executed: 13 
+ Total number of Test Cases Passed: 3 
+ Total number of Test Cases Failed: 10
+
+--------------------------------------------------------------------
+
+Decision Table Approach 
+Conditions: 
+C1 – Given input sides forms a Triangle or not 
+C2 – a=b 
+C3 – a=c 
+C4 – b=c 
+A1 – Not a Triangle 
+A2 – Scalene Triangle 
+A3 – Isosceles Triangle 
+A4 – Equilateral Triangle 
+A5 - Impossible 
+
+
++--------+----------------------------------------+-----+----+----+--------------------+--------------------+-------------+
+| TestID | Description                            |  a  | b  | c  | Expected Output     | Actual Output       | Test Result |
++--------+----------------------------------------+-----+----+----+--------------------+--------------------+-------------+
+| DT_1   | Valid inputs, does not form triangle   |  1  | 2  | 3  | Invalid Triangle    | Invalid Triangle    | Pass        |
+| DT_2   | Valid isosceles triangle               | 10  | 8  | 8  | Isosceles Triangle  | Isosceles Triangle  | Pass        |
+| DT_3   | Valid equilateral triangle             |  5  | 5  | 5  | Equilateral Triangle| Equilateral Triangle| Pass        |
+| DT_4   | Input value is out of range            |  0  | 1  | 2  | a is out of range   | Out of range        | Fail        |
+| DT_5   | Character input                        | 'a' | 5  | 4  | Invalid Input       | Invalid T           | Fail        |
+| DT_6   | String Input                           |abc  | 5  | 4  | Invalid Input       | Invalid T           | Fail        |
+| DT_7   | Negative Input                         | -1  | 2  | 8  | Negative Input      | Out of Range        | Fail        |
+| DT_8   | Decimal input                          |1.2  | 5  | 4  | Invalid Input       | Invalid T           | Fail        |
+| DT_9   | Less number of Inputs                  |  5  | 4  | -  | Value Error         | Invalid Triangle    | Fail        |
++--------+----------------------------------------+-----+----+----+--------------------+--------------------+-------------+
+
+
+Testing Report: 
+ Total number of Test Cases executed: 9 
+ Total number of Test Cases Passed: 3 
+ Total number of Test Cases Failed: 6
