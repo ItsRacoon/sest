@@ -1,52 +1,28 @@
-Python Code – 
-def verify(a, b, c): 
-    if a + b > c and b + c > a and c + a > b: 
-        if a == b == c: 
-            print("Equilateral triangle") 
-        elif a == b or b == c or a == c: 
-            print("Isosceles triangle") 
-        else: 
-            print("Scalene triangle") 
-    else: 
-        print("Triangle cannot be formed") 
- 
-a, b, c = map(int, input("Input the sides of triangle: ").split()) 
- 
-if 1 <= a <= 10 and 1 <= b <= 10 and 1 <= c <= 10: 
-    verify(a, b, c) 
-else: 
-    print("Out of range") 
+#include <stdio.h>
 
------------------------------------------------------------------------------------
+void verify(int a, int b, int c) {
+    if (a + b > c && b + c > a && c + a > b) {
+        if (a == b && b == c) {
+            printf("Equilateral triangle\n");
+        } else if (a == b || b == c || a == c) {
+            printf("Isosceles triangle\n");
+        } else {
+            printf("Scalene triangle\n");
+        }
+    } else {
+        printf("Triangle cannot be formed\n");
+    }
+}
 
-C++ Code – 
-#include <iostream> 
-using namespace std; 
- 
-void verify(int a, int b, int c) { 
-    if (a + b > c && b + c > a && c + a > b) { 
-        if (a == b && b == c) { 
-            cout << "Equilateral triangle" << endl; 
-        } else if (a == b || b == c || a == c) { 
-            cout << "Isosceles triangle" << endl; 
-        } else { 
-            cout << "Scalene triangle" << endl; 
-        } 
-    } else { 
-        cout << "Triangle cannot be formed" << endl; 
-    } 
-} 
- 
-int main() { 
-    int a, b, c; 
-    cout << "Input the sides of the triangle: "; 
-    cin >> a >> b >> c; 
- 
-    if (a >= 1 && a <= 10 && b >= 1 && b <= 10 && c >= 1 && c <= 10) { 
-        verify(a, b, c); 
-    } else { 
-        cout << "Out of range" << endl; 
-    } 
-    return 0; 
-} 
+int main() {
+    int a, b, c;
+    printf("Input the sides of the triangle: ");
+    scanf("%d %d %d", &a, &b, &c);
 
+    if (a >= 1 && a <= 10 && b >= 1 && b <= 10 && c >= 1 && c <= 10) {
+        verify(a, b, c);
+    } else {
+        printf("Out of range\n");
+    }
+    return 0;
+}
